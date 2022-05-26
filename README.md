@@ -19,6 +19,8 @@ A equipe comercial está meio perdida, eles não tem uma base completa de client
     - Axios https://www.npmjs.com/package/axios
     - JSON-Server https://www.npmjs.com/package/json-server
 4. Para rodar a aplicação, basta rodar no terminal/console: ```yarn start```
+    - Frontend: http://localhost:3000  
+    - Backend: http://localhost:3001
 ## FrontEnd
 |            | Nome        | Empresa     | Telefone    |Email        | Status      |
 | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
