@@ -1,0 +1,49 @@
+{
+  "clients": [
+    {
+      "guid": "0ac3f57a-4c1c-4875-92fb-b912744886b5",
+      "name": "Hurley George",
+      "company": "STRALUM",
+      "email": "hurleygeorge@stralum.com",
+      "phone": "+1 (813) 459-3680",
+      "address": "690 Havens Place, Loma, New Jersey, 2489",
+      "isActive": false
+    },
+    {
+      "guid": "72570e07-e123-4f70-bc95-00c76432e3ca",
+      "name": "Trudy Beasley",
+      "company": "AUTOGRATE",
+      "email": "trudybeasley@autograte.com",
+      "phone": "+1 (932) 550-3183",
+      "address": "860 Reeve Place, Norfolk, Mississippi, 1259",
+      "isActive": true
+    },
+    {
+      "guid": "b4d8225b-9e18-4413-a759-af89909d67b2",
+      "name": "Middleton Kemp",
+      "company": "SLAMBDA",
+      "email": "middletonkemp@slambda.com",
+      "phone": "+1 (862) 438-2308",
+      "address": "124 Banker Street, Gerber, California, 2121",
+      "isActive": false
+    },
+    {
+      "guid": "4b382c63-6612-4d6f-be5c-104a7dd1e89a",
+      "name": "Boyer Mcintyre",
+      "company": "OTHERSIDE",
+      "email": "boyermcintyre@otherside.com",
+      "phone": "+1 (891) 480-2571",
+      "address": "874 Albemarle Road, Greensburg, Nebraska, 1065",
+      "isActive": true
+    },
+    {
+      "guid": "0f6dd3f2-923e-4b54-a92b-7275adc115c9",
+      "name": "Johnston Fuller",
+      "company": "ROCKABYE",
+      "email": "johnstonfuller@rockabye.com",
+      "phone": "+1 (959) 528-3801",
+      "address": "595 Kimball Street, Comptche, Delaware, 8300",
+      "isActive": true
+    }
+  ]
+}

@@ -18,9 +18,8 @@ A equipe comercial está meio perdida, eles não tem uma base completa de client
     - UUID https://www.npmjs.com/package/uuidv4
     - Axios https://www.npmjs.com/package/axios
     - JSON-Server https://www.npmjs.com/package/json-server
-
+4. Para rodar a aplicação, basta rodar ```bash yarn start```
 ## FrontEnd
-
 |            | Nome        | Empresa     | Telefone    |Email        | Status      |
 | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
 | :pen: :wastebasket: | Callie Pace | ZENSOR | +1 (877) 469-2279 | calliepace@zensor.com | Inativo |
@@ -29,7 +28,6 @@ A equipe comercial está meio perdida, eles não tem uma base completa de client
 
 ## Backend
 Afim de focar somente no front, já deixamos um back prontinho pra você consumir, com os endpoints abaixo. Leia a documentação do JSON-Server caso tenha alguma dúvida.
-
 
 ### POST /clients
 Cadastrar o cliente com os seguintes campos:
@@ -90,3 +88,5 @@ Deve haver um botão na tabela para excluir o cliente
     Composição/reutilização de componentes;
     O motivo de ter escolhido cada tech da stack;
     Como rodar sua aplicação ;)
+
+## Plus
