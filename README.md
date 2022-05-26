@@ -17,6 +17,7 @@ A equipe comercial está meio perdida, eles não tem uma base completa de client
 3. Bibliotecas
     - UUID https://www.npmjs.com/package/uuidv4
     - Axios https://www.npmjs.com/package/axios
+    - JSON-Server https://www.npmjs.com/package/json-server
 
 ## FrontEnd
 
@@ -27,7 +28,7 @@ A equipe comercial está meio perdida, eles não tem uma base completa de client
 | :pen: :wastebasket: | Kris Moore | ROBOID | +1 (852) 600-2900 | krismoore@roboid.com | Inativo |
 
 ## Backend
-Afim de focar somente no front, já deixamos um back prontinho pra você consumir, com os endpoints abaixo.
+Afim de focar somente no front, já deixamos um back prontinho pra você consumir, com os endpoints abaixo. Leia a documentação do JSON-Server caso tenha alguma dúvida.
 
 
 ### POST /clients
