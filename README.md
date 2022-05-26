@@ -1,7 +1,7 @@
 # Frontend Challenge!
 <img src="https://github.com/GustavoRochaSantos/GustavoRochaSantos/blob/main/developer.gif" width="300" height="250">
 
-Seja bem vindo ao desafio! Queremos conhecer a forma com que você organiza o projeto, codifica, estiliza e entrega seu projeto. É muito importante pensar em cada detalhe e não se preocupe se não souber tudo, leia a documentação e dê o seu melhor.
+Seja bem vindo ao desafio! Queremos conhecer a forma com que você organiza, codifica, estiliza e entrega seu projeto. É muito importante pensar em cada detalhe e não se preocupe se não souber tudo, leia a documentação e dê o seu melhor.
 
 ## O desafio
 A equipe comercial está meio perdida, eles não tem uma base completa de clientes ainda e cada um deles tem seu "caderninho" com anotações. É necessário criarmos um CRUD para controlar os dados do cliente.
@@ -76,7 +76,7 @@ A requisição GET irá trazer um json com as informações dos clientes no form
 ]
 ```
 
-### PUT /clients/GUID
+### PUT /clients/:guid
 Deve haver um botão na tabela para atualizar os dados do cliente, passando o GUID na rota
 
 ### DELETE /clients
