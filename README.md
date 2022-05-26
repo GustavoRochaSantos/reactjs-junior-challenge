@@ -18,7 +18,7 @@ A equipe comercial está meio perdida, eles não tem uma base completa de client
     - UUID https://www.npmjs.com/package/uuidv4
     - Axios https://www.npmjs.com/package/axios
     - JSON-Server https://www.npmjs.com/package/json-server
-4. Para rodar a aplicação, basta rodar ```bash yarn start```
+4. Para rodar a aplicação, basta rodar no terminal/console: ```yarn start```
 ## FrontEnd
 |            | Nome        | Empresa     | Telefone    |Email        | Status      |
 | ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
