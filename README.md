@@ -22,11 +22,8 @@ A equipe comercial está meio perdida, eles não tem uma base completa de client
     - Frontend: http://localhost:3000  
     - Backend: http://localhost:3001
 ## FrontEnd
-|            | Nome        | Empresa     | Telefone    |Email        | Status      |
-| ----------- | ----------- | ----------- | ----------- | ----------- | ----------- |
-| :pen: :wastebasket: | Callie Pace | ZENSOR | +1 (877) 469-2279 | calliepace@zensor.com | Inativo |
-| :pen: :wastebasket: | Lott Cain | ECLIPTO | +1 (918) 511-2105 | lottcain@eclipto.com | Ativo |
-| :pen: :wastebasket: | Kris Moore | ROBOID | +1 (852) 600-2900 | krismoore@roboid.com | Inativo |
+Abaixo temos um exemplo de como deveria ser o projeto e os elementos básicos. Lembrando que isso é um guia, não é necessário fazer by pixel, você tem a liberdade de alterar conforme seu gosto.
+https://www.figma.com/file/QYmsgMBObQBSA54sILKWEX/
 
 ## Backend
 Afim de focar somente no front, já deixamos um back prontinho pra você consumir, com os endpoints abaixo. Leia a documentação do JSON-Server caso tenha alguma dúvida.
@@ -55,6 +52,7 @@ A requisição GET irá trazer um json com as informações dos clientes no form
     "email": "calliepace@zensor.com",
     "phone": "+1 (877) 469-2279",
     "address": "768 Conway Street, Titanic, Guam, 6238",
+    "note":"bla bla bla",
     "isActive": false
   },
   {
@@ -64,6 +62,7 @@ A requisição GET irá trazer um json com as informações dos clientes no form
     "email": "lottcain@eclipto.com",
     "phone": "+1 (918) 511-2105",
     "address": "552 Berriman Street, Kennedyville, Oregon, 202",
+    "note":"bla bla bla",
     "isActive": true
   },
   {
@@ -73,6 +72,7 @@ A requisição GET irá trazer um json com as informações dos clientes no form
     "email": "krismoore@roboid.com",
     "phone": "+1 (852) 600-2900",
     "address": "857 Noble Street, Waukeenah, Tennessee, 4429",
+    "note":"bla bla bla",
     "isActive": false
   }
 ]
@@ -92,3 +92,7 @@ Deve haver um botão na tabela para excluir o cliente
     Como rodar sua aplicação ;)
 
 ## Plus
+    Fazer transição para o modal
+    Paginação com filtros
+    Adicionar foto ao cliente
+    
