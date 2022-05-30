@@ -7,6 +7,7 @@
       "email": "hurleygeorge@stralum.com",
       "phone": "+1 (813) 459-3680",
       "address": "690 Havens Place, Loma, New Jersey, 2489",
+      "note": "bla bla bla",
       "isActive": false
     },
     {
@@ -16,6 +17,7 @@
       "email": "trudybeasley@autograte.com",
       "phone": "+1 (932) 550-3183",
       "address": "860 Reeve Place, Norfolk, Mississippi, 1259",
+      "note": "",
       "isActive": true
     },
     {
@@ -25,6 +27,7 @@
       "email": "middletonkemp@slambda.com",
       "phone": "+1 (862) 438-2308",
       "address": "124 Banker Street, Gerber, California, 2121",
+      "note": "",
       "isActive": false
     },
     {
@@ -34,6 +37,7 @@
       "email": "boyermcintyre@otherside.com",
       "phone": "+1 (891) 480-2571",
       "address": "874 Albemarle Road, Greensburg, Nebraska, 1065",
+      "note": "",
       "isActive": true
     },
     {
@@ -43,6 +47,7 @@
       "email": "johnstonfuller@rockabye.com",
       "phone": "+1 (959) 528-3801",
       "address": "595 Kimball Street, Comptche, Delaware, 8300",
+      "note": "",
       "isActive": true
     }
   ]
