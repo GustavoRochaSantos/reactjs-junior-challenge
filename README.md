@@ -7,7 +7,7 @@ Seja bem vindo ao desafio! Queremos conhecer a forma com que você organiza, cod
 A equipe comercial está meio perdida, eles não tem uma base completa de clientes ainda e cada um deles tem seu "caderninho" com anotações. É necessário criarmos um CRUD para controlar os dados do cliente.
 
 ## Regras
-1. Crie um novo fork e branch com seu nome-sobrenome e faça um pull request quando estiver pronto. Iremos fazer code review.
+1. Crie um novo fork e branch com seu nome-sobrenome, mude seu repositorio para privado e faça um pull request quando estiver pronto. Iremos fazer code review.
 2. Desenvolver o projeto utilizando:
     - HTML e CSS (ou algum pré-processador)
     - Utilizar hooks e componentes funcionais (não classes)
