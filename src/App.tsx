@@ -1,7 +1,9 @@
+import { Home } from "./pages/Home";
+
 function App() {
   return (
     <>
-      <h1 className="font-bold text-yellow-500">Hellow World</h1>
+      <Home />
     </>
   );
 }
