@@ -1,6 +1,13 @@
 import { Eraser, TrashSimple } from "phosphor-react";
+import { ClientType } from "../../contexts/clientsContext";
 
-export function Table() {
+type tableProps = {
+  clients: ClientType[];
+  changeIsActive: () => void;
+  getClient: (client: ClientType) => void;
+};
+
+export function Table({ clients, changeIsActive, getClient }: tableProps) {
   return (
     <>
       <table className="table-auto border-collapse border-2 border-gray-200 bg-white w-[1000px]">
@@ -14,168 +21,45 @@ export function Table() {
             <th className="border-2 border-gray-200 p-2">Status</th>
           </tr>
         </thead>
-        <tbody>
-          <tr>
-            <td className="text-lg gap-2 border-2 border-gray-200 p-2 text-center ">
-              <div className="flex justify-center gap-2">
-                <button className="hover:text-xl">
-                  <Eraser />
-                </button>
-                <button className="hover:text-xl">
-                  <TrashSimple />
-                </button>
-              </div>
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              Fulano de tal
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              Empresa 1
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              27 9 9999-9999
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              fulano@teste.com
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">Ativo</td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr>
-            <td className="text-lg gap-2 border-2 border-gray-200 p-2 text-center ">
-              <div className="flex justify-center gap-2">
-                <button className="hover:text-xl">
-                  <Eraser />
-                </button>
-                <button className="hover:text-xl">
-                  <TrashSimple />
-                </button>
-              </div>
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              Fulano de tal
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              Empresa 1
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              27 9 9999-9999
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              fulano@teste.com
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">Ativo</td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr>
-            <td className="text-lg gap-2 border-2 border-gray-200 p-2 text-center ">
-              <div className="flex justify-center gap-2">
-                <button className="hover:text-xl">
-                  <Eraser />
-                </button>
-                <button className="hover:text-xl">
-                  <TrashSimple />
-                </button>
-              </div>
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              Fulano de tal
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              Empresa 1
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              27 9 9999-9999
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              fulano@teste.com
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">Ativo</td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr>
-            <td className="text-lg gap-2 border-2 border-gray-200 p-2 text-center ">
-              <div className="flex justify-center gap-2">
-                <button className="hover:text-xl">
-                  <Eraser />
-                </button>
-                <button className="hover:text-xl">
-                  <TrashSimple />
-                </button>
-              </div>
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              Fulano de tal
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              Empresa 1
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              27 9 9999-9999
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              fulano@teste.com
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">Ativo</td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr>
-            <td className="text-lg gap-2 border-2 border-gray-200 p-2 text-center ">
-              <div className="flex justify-center gap-2">
-                <button className="hover:text-xl">
-                  <Eraser />
-                </button>
-                <button className="hover:text-xl">
-                  <TrashSimple />
-                </button>
-              </div>
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              Fulano de tal
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              Empresa 1
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              27 9 9999-9999
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              fulano@teste.com
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">Ativo</td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr>
-            <td className="text-lg gap-2 border-2 border-gray-200 p-2 text-center ">
-              <div className="flex justify-center gap-2">
-                <button className="hover:text-xl">
-                  <Eraser />
-                </button>
-                <button className="hover:text-xl">
-                  <TrashSimple />
-                </button>
-              </div>
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              Fulano de tal
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              Empresa 1
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              27 9 9999-9999
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">
-              fulano@teste.com
-            </td>
-            <td className="border-2 border-gray-200 p-2 text-center">Ativo</td>
-          </tr>
-        </tbody>
+        {clients.map((client: ClientType) => {
+          return (
+            <tbody key={client.guid}>
+              <tr>
+                <td className="text-lg gap-2 border-2 border-gray-200 p-2 text-center ">
+                  <div className="flex justify-center gap-2">
+                    <button
+                      onClick={() => {
+                        changeIsActive();
+                        getClient(client);
+                      }}
+                      className="hover:text-xl"
+                    >
+                      <Eraser />
+                    </button>
+                    <button className="hover:text-xl">
+                      <TrashSimple />
+                    </button>
+                  </div>
+                </td>
+                <td className="border-2 border-gray-200 p-2 text-center">
+                  {client.name}
+                </td>
+                <td className="border-2 border-gray-200 p-2 text-center">
+                  {client.company}
+                </td>
+                <td className="border-2 border-gray-200 p-2 text-center">
+                  {client.phone}
+                </td>
+                <td className="border-2 border-gray-200 p-2 text-center">
+                  {client.email}
+                </td>
+                <td className="border-2 border-gray-200 p-2 text-center">
+                  {client.isActive ? "Ativo" : "Desligado"}
+                </td>
+              </tr>
+            </tbody>
+          );
+        })}
       </table>
     </>
   );

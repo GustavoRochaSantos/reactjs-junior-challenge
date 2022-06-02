@@ -4,6 +4,7 @@ type ButtonProps = {
   children: string;
   color?: "gray" | "red";
   buttonFunction?: () => void;
+  searchFunction?: (text: string) => void;
 };
 
 export function Button({ children, color, buttonFunction }: ButtonProps) {

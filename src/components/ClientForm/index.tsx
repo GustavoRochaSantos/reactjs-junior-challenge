@@ -1,11 +1,17 @@
+import { ClientType } from "../../contexts/clientsContext";
 import { Button } from "../Button";
 
 type ClienteFormProps = {
   isActive: boolean;
   changeIsActive: () => void;
+  client: ClientType;
 };
 
-export function ClientForm({ isActive, changeIsActive }: ClienteFormProps) {
+export function ClientForm({
+  isActive,
+  changeIsActive,
+  client,
+}: ClienteFormProps) {
   return (
     <>
       {isActive && (
@@ -23,21 +29,26 @@ export function ClientForm({ isActive, changeIsActive }: ClienteFormProps) {
                   type="text"
                   placeholder="Nome"
                   className="border-2 rounded-md pl-2 w-60"
+                  value={client.name}
                 />
+
                 <input
                   type="text"
                   placeholder="Empresa"
                   className="border-2 rounded-md pl-2 w-60"
+                  value={client.company}
                 />
                 <input
                   type="tel"
                   placeholder="Telefone"
                   className="border-2 rounded-md pl-2 w-60"
+                  value={client.phone}
                 />
                 <input
                   type="email"
                   placeholder="Email"
                   className="border-2 rounded-md pl-2 w-60"
+                  value={client.email}
                 />
               </span>
               <span className="flex flex-col gap-2">
@@ -45,11 +56,13 @@ export function ClientForm({ isActive, changeIsActive }: ClienteFormProps) {
                   type="text"
                   placeholder="Endereço"
                   className="border-2 rounded-md pl-2 w-[100%]"
+                  value={client.address}
                 />
                 <input
                   type="text"
                   placeholder="Notas"
                   className="border-2 rounded-md pl-2 w-[100%] h-36"
+                  value={client.note}
                 />
               </span>
             </form>
