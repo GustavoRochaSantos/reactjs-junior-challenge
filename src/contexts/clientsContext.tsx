@@ -2,7 +2,7 @@ import { createContext, useEffect, useState } from "react";
 import { api } from "../services/api";
 
 export interface ClientType {
-  guid: string;
+  id: string;
   name: string;
   company: string;
   email: string;
@@ -15,6 +15,7 @@ export interface ClientType {
 export interface ClientsType {
   clients: ClientType[];
   searchClient: Function;
+  updateClients: (client: ClientType) => void;
 }
 
 interface propsType {
@@ -26,7 +27,7 @@ export const ClientsContext = createContext({} as ClientsType);
 export function ClientContextProvider(props: propsType) {
   const [clients, setClients] = useState<ClientType[]>([
     {
-      guid: "",
+      id: "",
       name: "",
       company: "",
       email: "",
@@ -43,9 +44,8 @@ export function ClientContextProvider(props: propsType) {
       const parsedClients = get.data;
       setClients(parsedClients);
     }
-    return () => {
-      getClients();
-    };
+
+    getClients();
   }, []);
 
   async function searchClient(text: string) {
@@ -54,8 +54,29 @@ export function ClientContextProvider(props: propsType) {
     setClients(parsedClients);
   }
 
+  function updateClients(client: ClientType) {
+    const newClients = clients.map((cli) => {
+      if (client.id === cli.id) {
+        return {
+          id: cli.id,
+          name: client.name,
+          company: client.company,
+          email: client.email,
+          phone: client.phone,
+          address: client.address,
+          note: client.note,
+          isActive: client.isActive,
+        };
+      }
+
+      return cli;
+    });
+
+    setClients(newClients);
+  }
+
   return (
-    <ClientsContext.Provider value={{ clients, searchClient }}>
+    <ClientsContext.Provider value={{ clients, searchClient, updateClients }}>
       {props.children}
     </ClientsContext.Provider>
   );

@@ -23,7 +23,7 @@ export function Table({ clients, changeIsActive, getClient }: tableProps) {
         </thead>
         {clients.map((client: ClientType) => {
           return (
-            <tbody key={client.guid}>
+            <tbody key={client.id}>
               <tr>
                 <td className="text-lg gap-2 border-2 border-gray-200 p-2 text-center ">
                   <div className="flex justify-center gap-2">
