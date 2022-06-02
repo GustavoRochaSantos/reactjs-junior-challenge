@@ -12,7 +12,7 @@ export function Home() {
   const [isActive, setIsActive] = useState(false);
   const { clients } = useClients();
   const [client, setClient] = useState<ClientType>({
-    guid: "",
+    id: "",
     name: "",
     company: "",
     email: "",
