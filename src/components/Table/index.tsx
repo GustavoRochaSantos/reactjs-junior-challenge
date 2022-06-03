@@ -1,5 +1,6 @@
 import { Eraser, TrashSimple } from "phosphor-react";
 import { ClientType } from "../../contexts/clientsContext";
+import { useClients } from "../../hooks/useClients";
 
 type tableProps = {
   clients: ClientType[];
@@ -8,6 +9,7 @@ type tableProps = {
 };
 
 export function Table({ clients, changeIsActive, getClient }: tableProps) {
+  const { deleteClient } = useClients();
   return (
     <>
       <table className="table-auto border-collapse border-2 border-gray-200 bg-white w-[1000px]">
@@ -36,7 +38,12 @@ export function Table({ clients, changeIsActive, getClient }: tableProps) {
                     >
                       <Eraser />
                     </button>
-                    <button className="hover:text-xl">
+                    <button
+                      onClick={() => {
+                        deleteClient(client.id);
+                      }}
+                      className="hover:text-xl"
+                    >
                       <TrashSimple />
                     </button>
                   </div>

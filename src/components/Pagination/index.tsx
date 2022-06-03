@@ -1,4 +1,8 @@
+import { useState } from "react";
+
 export function Pagination() {
+  const [page, setPage] = useState(1)
+  const lastPage = 5
   return (
     <>
       <div className="flex justify-center gap-2">
