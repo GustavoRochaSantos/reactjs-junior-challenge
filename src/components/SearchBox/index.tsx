@@ -1,7 +1,11 @@
 import { useState } from "react";
 import { useClients } from "../../hooks/useClients";
 
-export function SearchBox() {
+interface SearchBoxProps {
+  onIsActiveChange: () => void;
+}
+
+export function SearchBox({ onIsActiveChange }: SearchBoxProps) {
   const { searchClient } = useClients();
   const [searchValue, setSearchValue] = useState("");
 
@@ -28,6 +32,12 @@ export function SearchBox() {
           className="h-12 bg-red-600 text-white p-2 rounded-lg font-semibold hover:bg-red-800 active:border-red-600 active:border-2"
         >
           Procurar
+        </button>
+        <button
+          onClick={onIsActiveChange}
+          className="h-12 bg-gray-500 text-white p-2 rounded-lg font-semibold hover:bg-gray-800 active:border-gray-600 active:border-2"
+        >
+          Novo Cliente
         </button>
       </form>
     </>
