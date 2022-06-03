@@ -11,6 +11,7 @@ import { useClients } from "../hooks/useClients";
 export function Home() {
   const [isActive, setIsActive] = useState(false);
   const { clients } = useClients();
+  const [currentPage, setCurrentPage] = useState(1);
   const [client, setClient] = useState<ClientType>({
     id: "",
     name: "",
@@ -30,6 +31,10 @@ export function Home() {
     setIsActive(!isActive);
   }
 
+  function onPageChange(number: number) {
+    setCurrentPage(number);
+  }
+
   return (
     <>
       <Header />
@@ -40,8 +45,9 @@ export function Home() {
             clients={clients}
             changeIsActive={changeIsActive}
             getClient={getClient}
+            currentPage={currentPage}
           />
-          <Pagination />
+          <Pagination currentPage={currentPage} onPageChange={onPageChange} />
         </section>
       </div>
       <Footer />
