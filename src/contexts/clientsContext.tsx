@@ -16,6 +16,8 @@ export interface ClientsType {
   clients: ClientType[];
   searchClient: Function;
   updateClients: (client: ClientType) => void;
+  deleteClient: (id: string) => void;
+  createNewClient: (client: ClientType) => void;
 }
 
 interface propsType {
@@ -75,8 +77,36 @@ export function ClientContextProvider(props: propsType) {
     setClients(newClients);
   }
 
+  async function deleteClient(id: string) {
+    await api.delete(`/clients/${id}`);
+    const newClients = clients.filter((client) => {
+      return client.id != id;
+    });
+
+    setClients(newClients);
+  }
+
+  async function createNewClient(client: ClientType) {
+    if (
+      clients.filter((cli) => {
+        return cli.id === client.id;
+      }) != []
+    ) {
+      await api.post("/clients", client);
+      setClients((state) => [...state, client]);
+    }
+  }
+
   return (
-    <ClientsContext.Provider value={{ clients, searchClient, updateClients }}>
+    <ClientsContext.Provider
+      value={{
+        clients,
+        searchClient,
+        updateClients,
+        deleteClient,
+        createNewClient,
+      }}
+    >
       {props.children}
     </ClientsContext.Provider>
   );
