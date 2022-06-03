@@ -1,5 +1,6 @@
-import { useState } from "react";
-import { uuid } from "uuidv4";
+import { useEffect, useState } from "react";
+import { v4 } from "uuid";
+
 import { ClientType } from "../../contexts/clientsContext";
 import { useClients } from "../../hooks/useClients";
 import { Button } from "../Button";
@@ -11,7 +12,7 @@ type ClienteFormProps = {
 
 export function NewClientForm({ isActive, changeIsActive }: ClienteFormProps) {
   const [clientInfo, setClientInfo] = useState<ClientType>({
-    id: uuid(),
+    id: v4(),
     address: "",
     company: "",
     email: "",
@@ -22,6 +23,19 @@ export function NewClientForm({ isActive, changeIsActive }: ClienteFormProps) {
   });
 
   const { createNewClient } = useClients();
+
+  useEffect(() => {
+    setClientInfo({
+      id: v4(),
+      address: "",
+      company: "",
+      email: "",
+      name: "",
+      note: "",
+      phone: "",
+      isActive: true,
+    });
+  }, [isActive]);
 
   return (
     <>
