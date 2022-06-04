@@ -1,4 +1,7 @@
+// ----------React---------
 import { useState } from "react";
+
+// ----------Hooks---------
 import { useClients } from "../../hooks/useClients";
 
 interface SearchBoxProps {
@@ -7,6 +10,7 @@ interface SearchBoxProps {
 
 export function SearchBox({ onIsActiveChange }: SearchBoxProps) {
   const { searchClient } = useClients();
+  
   const [searchValue, setSearchValue] = useState("");
 
   return (

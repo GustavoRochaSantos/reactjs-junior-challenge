@@ -1,14 +1,22 @@
+// ----------React---------
 import { useEffect, useState } from "react";
-import { v4 } from "uuid";
 
-import { ClientType } from "../../contexts/clientsContext";
-import { useClients } from "../../hooks/useClients";
+// ----------Components---------
 import { Button } from "../Button";
 
-type ClienteFormProps = {
+// ----------Contexts---------
+import { ClientType } from "../../contexts/clientsContext";
+
+// ----------Hooks---------
+import { useClients } from "../../hooks/useClients";
+
+// ----------External Libs---------
+import { v4 } from "uuid";
+
+interface ClienteFormProps {
   isActive: boolean;
   changeIsActive: () => void;
-};
+}
 
 export function NewClientForm({ isActive, changeIsActive }: ClienteFormProps) {
   const [clientInfo, setClientInfo] = useState<ClientType>({
@@ -24,6 +32,7 @@ export function NewClientForm({ isActive, changeIsActive }: ClienteFormProps) {
 
   const { createNewClient } = useClients();
 
+  // Reset the form to blank and creates a new uuidv4, every time it is activated
   useEffect(() => {
     setClientInfo({
       id: v4(),
@@ -57,6 +66,7 @@ export function NewClientForm({ isActive, changeIsActive }: ClienteFormProps) {
               className="p-5 flex flex-col gap-3"
             >
               <span className="flex justify-between items-center flex-wrap gap-2">
+                {/* Name */}
                 <input
                   type="text"
                   placeholder="Nome"
@@ -75,7 +85,7 @@ export function NewClientForm({ isActive, changeIsActive }: ClienteFormProps) {
                     });
                   }}
                 />
-
+                {/* Company */}
                 <input
                   type="text"
                   placeholder="Empresa"
@@ -94,6 +104,7 @@ export function NewClientForm({ isActive, changeIsActive }: ClienteFormProps) {
                     });
                   }}
                 />
+                {/* Phone */}
                 <input
                   type="tel"
                   placeholder="Telefone"
@@ -112,6 +123,7 @@ export function NewClientForm({ isActive, changeIsActive }: ClienteFormProps) {
                     });
                   }}
                 />
+                {/* Email */}
                 <input
                   type="email"
                   placeholder="Email"
@@ -132,6 +144,7 @@ export function NewClientForm({ isActive, changeIsActive }: ClienteFormProps) {
                 />
               </span>
               <span className="flex flex-col gap-2">
+                {/* Address */}
                 <input
                   type="text"
                   placeholder="Endereço"
@@ -150,6 +163,7 @@ export function NewClientForm({ isActive, changeIsActive }: ClienteFormProps) {
                     });
                   }}
                 />
+                {/* Note */}
                 <input
                   type="text"
                   placeholder="Notas"

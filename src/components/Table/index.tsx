@@ -1,8 +1,13 @@
+// ----------Icons---------
 import { Eraser, TrashSimple } from "phosphor-react";
+
+// ----------Context---------
 import { ClientType } from "../../contexts/clientsContext";
+
+// ----------Hooks---------
 import { useClients } from "../../hooks/useClients";
 
-type tableProps = {
+interface tableProps {
   clients: ClientType[];
   changeIsActive: () => void;
   getClient: (client: ClientType) => void;
@@ -29,6 +34,7 @@ export function Table({
             <th className="border-2 border-gray-200 p-2">Status</th>
           </tr>
         </thead>
+        {/* Using the slice method it takes only 6 clients per page and show using map */}
         {clients
           .slice((currentPage - 1) * 6, currentPage * 6)
           .map((client: ClientType) => {

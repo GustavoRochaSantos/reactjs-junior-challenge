@@ -1,3 +1,4 @@
+// ----------Icons---------
 import { FacebookLogo, InstagramLogo } from "phosphor-react";
 
 export function Footer() {

@@ -1,29 +1,40 @@
+// ----------React---------
 import { useEffect, useState } from "react";
-import { ClientType } from "../../contexts/clientsContext";
-import { useClients } from "../../hooks/useClients";
-import { api } from "../../services/api";
+
+// ----------Components---------
 import { Button } from "../Button";
 
-type clientInfoType = {
+// ----------Services---------
+import { api } from "../../services/api";
+
+// ----------Contexts---------
+import { ClientType } from "../../contexts/clientsContext";
+
+// ----------Hooks---------
+import { useClients } from "../../hooks/useClients";
+
+interface clientInfoType {
   name: string;
   company: string;
   email: string;
   phone: string;
   address: string;
   note: string;
-};
+}
 
-type ClienteFormProps = {
+interface ClienteFormProps {
   isActive: boolean;
   changeIsActive: () => void;
   client: ClientType;
-};
+}
 
 export function ClientForm({
   isActive,
   changeIsActive,
   client,
 }: ClienteFormProps) {
+  const { updateClients } = useClients();
+
   const [clientInfo, setClientInfo] = useState<clientInfoType>({
     address: "",
     company: "",
@@ -33,8 +44,7 @@ export function ClientForm({
     phone: "",
   });
 
-  const { updateClients } = useClients();
-
+  // Takes the client info from client to populate the form
   useEffect(() => {
     setClientInfo({
       address: client.address,
@@ -46,6 +56,7 @@ export function ClientForm({
     });
   }, [client]);
 
+  // Save the client on the API and uses the function updateClients to re-render the table
   async function saveClient() {
     const clientParsed = {
       id: client.id,
@@ -90,6 +101,7 @@ export function ClientForm({
               className="p-5 flex flex-col gap-3"
             >
               <span className="flex justify-between items-center flex-wrap gap-2">
+                {/* Name */}
                 <input
                   type="text"
                   placeholder="Nome"
@@ -106,7 +118,7 @@ export function ClientForm({
                     });
                   }}
                 />
-
+                {/* Company */}
                 <input
                   type="text"
                   placeholder="Empresa"
@@ -123,6 +135,7 @@ export function ClientForm({
                     });
                   }}
                 />
+                {/* Phone */}
                 <input
                   type="tel"
                   placeholder="Telefone"
@@ -139,6 +152,7 @@ export function ClientForm({
                     });
                   }}
                 />
+                {/* Email */}
                 <input
                   type="email"
                   placeholder="Email"
@@ -157,6 +171,7 @@ export function ClientForm({
                 />
               </span>
               <span className="flex flex-col gap-2">
+                {/* Address */}
                 <input
                   type="text"
                   placeholder="Endereço"
@@ -173,6 +188,7 @@ export function ClientForm({
                     });
                   }}
                 />
+                {/* Note */}
                 <input
                   type="text"
                   placeholder="Notas"
