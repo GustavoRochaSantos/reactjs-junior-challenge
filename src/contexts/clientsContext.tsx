@@ -1,4 +1,7 @@
+// ----------React---------
 import { createContext, useEffect, useState } from "react";
+
+// ----------Services---------
 import { api } from "../services/api";
 
 export interface ClientType {
@@ -24,6 +27,7 @@ interface propsType {
   children?: JSX.Element;
 }
 
+// Create a context with type defined
 export const ClientsContext = createContext({} as ClientsType);
 
 export function ClientContextProvider(props: propsType) {
@@ -40,6 +44,7 @@ export function ClientContextProvider(props: propsType) {
     },
   ]);
 
+  // Get the clients data from the API and returns in an array of objects
   useEffect(() => {
     async function getClients() {
       const get = await api.get("/clients");
@@ -50,12 +55,14 @@ export function ClientContextProvider(props: propsType) {
     getClients();
   }, []);
 
+  // A function to search in the API by some text provided and sets the clients to the search results
   async function searchClient(text: string) {
     const get = await api.get(`/clients?q=${text}`);
     const parsedClients = get.data;
     setClients(parsedClients);
   }
 
+  // Updates the state clients, seraching by id, with the information freshly provided
   function updateClients(client: ClientType) {
     const newClients = clients.map((cli) => {
       if (client.id === cli.id) {
@@ -77,6 +84,7 @@ export function ClientContextProvider(props: propsType) {
     setClients(newClients);
   }
 
+  // Delete a client from the API and the clients state
   async function deleteClient(id: string) {
     await api.delete(`/clients/${id}`);
     const newClients = clients.filter((client) => {
@@ -86,6 +94,7 @@ export function ClientContextProvider(props: propsType) {
     setClients(newClients);
   }
 
+  // Creates a new client in the API and updates the clients state
   async function createNewClient(client: ClientType) {
     if (
       clients.filter((cli) => {

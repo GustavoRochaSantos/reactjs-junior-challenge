@@ -1,3 +1,4 @@
+// ----------Images---------
 import logo from "../../img/logo.png";
 
 export function Header() {
