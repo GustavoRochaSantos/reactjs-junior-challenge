@@ -1,6 +1,6 @@
 import React from "react"
 
-function Spreadsheet (){
+function Modal (){
 
 return(
     <div>
@@ -9,4 +9,4 @@ return(
 )
 }
 
-export default Spreadsheet
+export default Modal
