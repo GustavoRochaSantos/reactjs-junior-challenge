@@ -5,6 +5,7 @@ import Footer from "./components/footer"
 import Spreadsheet from "./components/spreadsheet"
 import SearchBox from "./components/searchbox"
 import styled from "styled-components"
+import PaginationComponent from "./components/pagination"
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
       <Header/>
       <SearchBox/>
       <Spreadsheet/>
+      <PaginationComponent/>
       <Footer/>
     </div>
   )    
