@@ -6,6 +6,7 @@ import Spreadsheet from "./components/spreadsheet"
 import SearchBox from "./components/searchbox"
 import styled from "styled-components"
 import PaginationComponent from "./components/pagination"
+import Modal from "./components/modal"
 
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
       <SearchBox/>
       <Spreadsheet/>
       <PaginationComponent/>
+      <Modal/>
       <Footer/>
     </div>
   )    
