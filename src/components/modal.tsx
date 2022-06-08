@@ -2,6 +2,7 @@ import * as React from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import styled from 'styled-components';
+import { Button } from '@mui/material';
 
 const ModalConteiner = styled.div`
 display: flex ;
@@ -18,7 +19,7 @@ justify-content: center ;
 `
 
 
-export default function MultilineTextFields() {
+export default function Modal() {
     const [value, setValue] = React.useState('');
 
     const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -80,6 +81,7 @@ export default function MultilineTextFields() {
                         rows={4}
                     />
                 </InputConteiner>
+                <Button variant="outlined" size='small'>Pesquisar</Button>
 
             </Box>
         </ModalConteiner>

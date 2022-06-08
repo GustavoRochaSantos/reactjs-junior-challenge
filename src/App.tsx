@@ -9,19 +9,21 @@ import PaginationComponent from "./components/pagination"
 import Modal from "./components/modal"
 
 
+
+
 function App() {
 
 
   return (
     <div>
-      <Header/>
-      <SearchBox/>
-      <Spreadsheet/>
+      <Header />
+      <SearchBox />
+      {/* <Spreadsheet/>
       <PaginationComponent/>
-      <Modal/>
-      <Footer/>
+      <Modal/> */}
+      <Footer />
     </div>
-  )    
+  )
 }
 
 export default App

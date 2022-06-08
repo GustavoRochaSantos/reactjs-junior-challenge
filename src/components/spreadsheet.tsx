@@ -54,7 +54,7 @@ useEffect (() => {
 
   return (
     <Conteiner>
-    <TableContainer component={Paper} sx={{ width: 1700 }}>
+    <TableContainer component={Paper} sx={{ width: 1300 }}>
       <Table  size="medium" aria-label="a dense table">
         <TableHead>
           <TableRow>
