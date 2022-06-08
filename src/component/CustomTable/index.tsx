@@ -25,7 +25,7 @@ export const CustomTable =()=> {
     const toast = useToast()
     const [loading,setLoading] =useState<boolean>(true)
     const [pageNumber, setPageNumber] = useState(0);
-    const usersPerPage = 2;
+    const usersPerPage = 5;
     const pagesVisited = pageNumber * usersPerPage;
     const [currentItems, setCurrentItems] = useState<IClientsProps[]>([]);
     const pageCount = Math.ceil(currentItems?.length / usersPerPage);
