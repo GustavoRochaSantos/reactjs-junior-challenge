@@ -1,0 +1,23 @@
+header {
+  width: 100%;
+  background-color: #FFFFFF;
+
+  display: flex;
+  align-items: center;
+  padding: 40px 50px;
+  border-bottom: 1px solid #ff0000;
+  margin-bottom: 20px;
+}
+
+.content-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+
+.content-title {
+  display: flex;
+  align-items: center;
+  margin-left: 470px;
+}

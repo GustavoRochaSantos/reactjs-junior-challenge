@@ -1,0 +1,135 @@
+.container-table {
+  min-height: 500px;
+  width: 100%;
+  font-family: 'Lato', sans-serif;
+  min-width: 800px;
+}
+
+
+.table-head {
+  width: 100%;
+  height: 58px;
+  background: #fafafa;
+  box-shadow: 0px 2px 11px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 24px;
+  font-size: 16px;
+}
+
+
+.table-column-small {
+  text-align: center;
+  width: 10%;
+}
+
+
+.table-column-middle {
+  text-align: center;
+  width: 12%;
+}
+
+
+.table-column-big {
+  text-align: center;
+  width: 25%;
+}
+
+
+.table-body {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+.table-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  height: 56px;
+  border-bottom: 1px solid #e0e0e0;
+  margin-top: 8px;
+  padding: 0 24px;
+
+  position: relative;
+}
+
+
+.content-date {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  text-align: start;
+}
+
+
+.content-date strong {
+  margin-right: 4px;
+}
+
+
+.content-date img {
+  width: 12px;
+  margin-top: 4px;
+}
+
+.action-buttons img{
+  cursor: pointer;
+}
+
+
+.values {
+  font-weight: bold;
+  font-family: 'Lato', sans-serif;
+}
+
+.filter {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  margin: 40px;
+  text-align: center;
+}
+
+.filter input, button {
+  all: unset;
+}
+
+.filter input {
+  width: 600px;
+  height: 70px;
+  border: 1px solid #C5C5C5;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.btn-red {
+  background:  #BE152A;
+  width: 133px;
+  height: 70px;
+  border-radius: 10px;
+  color: #fafafa;
+  cursor: pointer;
+}
+
+.btn-gray {
+  background: #666666;
+  width: 133px;
+  height: 70px;
+  border-radius: 10px;
+  color: #fafafa;
+  cursor: pointer;
+}
+
+
+
+
+
+

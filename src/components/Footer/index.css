@@ -1,0 +1,29 @@
+.content-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: #666666;
+  color: #fff;
+  padding: 50px;
+}
+
+.content-contacts {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
+.content-social-midias {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+
+.social-midias-icons {
+  display: flex;
+  margin-top: 10px;
+  gap: 30px;
+}
