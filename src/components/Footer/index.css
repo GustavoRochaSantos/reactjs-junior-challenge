@@ -8,6 +8,13 @@
   padding: 50px;
 }
 
+.content-contacts {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+}
+
 .content-social-midias {
   display: flex;
   align-items: center;
@@ -16,5 +23,7 @@
 
 
 .social-midias-icons {
+  display: flex;
   margin-top: 10px;
+  gap: 30px;
 }

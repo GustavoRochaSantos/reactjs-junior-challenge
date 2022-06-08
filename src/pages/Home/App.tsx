@@ -5,6 +5,7 @@ import Dashboard from '../../components/Dashboard';
 import Footer from '../../components/Footer';
 
 import './App.css'
+import { useState } from 'react';
 
 function App() {
   
@@ -12,7 +13,7 @@ function App() {
     <div className="container">
         <Header/>
       <main>
-         <Dashboard/>
+         <Dashboard />
       </main>
       <div>
         <Footer/>
