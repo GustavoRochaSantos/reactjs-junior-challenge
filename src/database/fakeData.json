@@ -1,14 +1,14 @@
 {
   "clients": [
     {
-      "id": "19:40:57-avogadro",
-      "name": "Sebastião de Sousa Moniz",
-      "address": "Brasil",
+      "name": "Adão Filipe",
+      "company": "snir",
+      "phone": "+244 947 784 700",
       "email": "cientistaavogadro2019@gmail.com",
-      "company": "",
-      "phone": "",
-      "note": "",
-      "isActive": false
+      "address": "Luanda",
+      "note": "asfsd",
+      "isActive": true,
+      "id": "4f9913cf-b73d-417f-9993-1a7a2da0377f"
     }
   ]
 }

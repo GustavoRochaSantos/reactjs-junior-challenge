@@ -7,4 +7,5 @@ export interface IClientsProps{
     address:string
     note:string
     isActive:boolean
+    image?:string
 }

@@ -1,145 +1,70 @@
-import {ChangeEvent, FormEvent, useEffect, useState} from "react";
-import {IClientsProps} from "../../types/apiResult";
-import {api} from "../../services/api";
-import {createNewClient, deleteClient, editClient, getAllClients} from "../../helpers/crudOperator";
-import {uuid} from "uuidv4";
+import React, { useState } from "react";
+
+import {CustomTable} from "../CustomTable";
+import {Box, Button, Flex, FormControl, FormLabel, Heading, Image, Input, Text} from "@chakra-ui/react";
+import logo from '../assets/img/logo.png'
+import {CustomButtonIcon} from "../CustomButtonIcon";
+import {AiFillFacebook, AiFillInstagram, AiOutlineInstagram, IoPersonAdd} from "react-icons/all";
+import {useDispatch} from "react-redux";
 
 export const App =()=> {
-const [data,setData] =useState<IClientsProps[]>([])
-const [loading,setLoading] =useState<boolean>(true)
-const [send, setSend] = useState<IClientsProps>({
-    id:'',
-    name:'',
-    address:'',
-    email:'',
-    company:'',
-    phone:'',
-    note:'',
-    isActive:true
-})
+    const dispatch = useDispatch();
+    const [value, setValue] = useState('');
 
-useEffect( () => {
-   getAllClients().then((res:any) => {
-       setData(res)
-       setLoading(false)
-   })
-}, [data])
-
-
-const handleChange = (event:ChangeEvent<HTMLInputElement>)=>{
-    setSend({...send,
-        [event.target.name]:event.target.value,
-        id:uuid()
-    })
-}
-
-const handleClick = ()=>{
-    const dt = data
-    dt.push(send)
-    setData(dt)
-    createNewClient(send).then(res=>console.log(res))
-}
   return (
+        <Flex flexDir={'column'}>
+            <Flex borderBottom={'1px solid #BE152A'} px={'25px'} py={'40px'} align="center" gap={'246px'}>
+                <Image src={logo}/>
+                <Text fontWeight={'700'} fontSize={'40px'} lineHeight={'54px'} >Frontend Challenge</Text>
+            </Flex>
+            <Flex p={'70px'} flexDir={'column'}>
+                <Box display={'flex'} alignItems={'center'} mb={'41px'} gap={'20px'} >
+                        <Input
+                            placeholder='Pesquisar por nome, empresa , telefone, email ou status'
+                            w={{base:'300px', md:'649px'}}
+                            h={'50px'}
+                            autoComplete={'off'}
+                            onChange={({target})=>setValue(target.value)}
+                        />
+                    <Button
+                        bgColor={'rgba(190, 21, 42, 1)'}
+                        color={'white'}
+                        _hover={{backgroundColor: 'rgba(190, 21, 42, 0.8)'}}
+                        _active={{backgroundColor: ''}}
+                        h={'50px'}
+                        onClick={()=>{
+                            dispatch({ type: 'set', searchText:value })
+                        }}
+                    >Search</Button>
+                    <CustomButtonIcon Icon={IoPersonAdd} type={'add'}/>
+                </Box>
+                <CustomTable />
+            </Flex>
 
-        <div className="App">
-            <div >
-                <h1>Form Client Save</h1>
-                <div>
-                    <label htmlFor="name">Name</label>
-                    <input type="text" name={'name'} onChange={handleChange}/>
-                    {
-                        send.name ==='' && <span>is required</span>
-                    }
-                </div>
-                <div>
-                    <label htmlFor="">address</label>
-                    <input type="text" name={'address'} onChange={handleChange}/>
-                    {
-                        send.address ==='' && <span>is required</span>
-                    }
-                </div>
-                <div>
-                    <label htmlFor="">company</label>
-                    <input type="text" name={'company'} onChange={handleChange}/>
-                </div>
-                <div>
-                    <label htmlFor="">phone</label>
-                    <input type="text" name={'phone'} onChange={handleChange}/>
-                    {
-                        send.phone ==='' && <span>is required</span> || !send.phone.includes('+') && <span>please enter a valid phone number</span>
-                    }
-                </div>
-                <div>
-                    <label htmlFor="">email</label>
-                    <input type="text" name={'email'} onChange={handleChange}/>
-                </div>
-                <div>
-                    <label htmlFor="">note</label>
-                    <input type="text" name={'note'} onChange={handleChange}/>
-                </div>
-
-                <button type="submit" onClick={handleClick}>salvar</button>
-
-            </div>
-
-            <h1>Tbale Content Client Datas</h1>
-            {
-                loading ? <span>loading...</span>:
-                    <table >
-                        <thead >
-                        <tr >
-                            <th>N.</th>
-                            <th>Name</th>
-                            <th>Address</th>
-                            <th>Company</th>
-                            <th>Phone</th>
-                            <th>email</th>
-                            <th>Note</th>
-                            <th>State</th>
-                            <th>Options</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {
-                            data?.map((item, index)=>
-                                <tr key={item.id}>
-                                    <td>{index}</td>
-                                    <td>{item.name}</td>
-                                    <td>{item.address}</td>
-                                    <td>{item.company}</td>
-                                    <td>{item.phone}</td>
-                                    <td>{item.email}</td>
-                                    <td>{item.note}</td>
-                                    <td>{item.isActive}</td>
-                                    <td>
-                                        <button onClick={()=> {
-                                            data?.splice(index, 1)
-                                            deleteClient(item.id)
-                                        }}>delete</button>
-                                        <button onClick={()=> {
-                                            data?.splice(index, 1)
-                                            editClient(item.id, {
-                                                id: "19:40:57-avogadro",
-                                                name: "Sebastião de Sousa Moniz",
-                                                address: "Brasil",
-                                                email: "cientistaavogadro2019@gmail.com",
-                                                company: "",
-                                                phone: "",
-                                                note: "",
-                                                isActive: false
-                                            })
-                                        }}>editar</button>
-                                    </td>
-
-                                </tr>
-                            )
-                        }
-                        </tbody>
-
-
-                    </table>
-            }
-
-        </div>
+            <Flex bgColor={'#666666'} py={'36px'} px={'70px'} justify="space-between" color={'#fff'}>
+                <Flex flexDir={'column'} align="center">
+                    <Heading size={'md'} color={'#fff'}>
+                        Contacto
+                    </Heading>
+                    <Flex gap={'26px'}>
+                        <Text>
+                            (xx) x.xxxx-xxxx
+                        </Text>
+                        <Text>
+                            fulanodetal@teste.com.br
+                        </Text>
+                    </Flex>
+                </Flex>
+                <Flex flexDir={'column'} align="center">
+                    <Heading size={'md'} color={'#fff'}>
+                        Nossas Redes Sociais
+                    </Heading>
+                    <Flex gap={'5px'}>
+                        <AiFillFacebook fontSize={'30px'}/>
+                        <AiOutlineInstagram fontSize={'30px'}/>
+                    </Flex>
+                </Flex>
+            </Flex>
+        </Flex>
   )
 }
