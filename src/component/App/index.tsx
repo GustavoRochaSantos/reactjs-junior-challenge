@@ -2,6 +2,7 @@ import {ChangeEvent, FormEvent, useEffect, useState} from "react";
 import {IClientsProps} from "../../types/apiResult";
 import {api} from "../../services/api";
 import {createNewClient, deleteClient, editClient, getAllClients} from "../../helpers/crudOperator";
+import {uuid} from "uuidv4";
 
 export const App =()=> {
 const [data,setData] =useState<IClientsProps[]>([])
@@ -28,7 +29,7 @@ useEffect( () => {
 const handleChange = (event:ChangeEvent<HTMLInputElement>)=>{
     setSend({...send,
         [event.target.name]:event.target.value,
-        id:'cientista-avogadro'.replace('cientista',new Date().toLocaleTimeString())
+        id:uuid()
     })
 }
 
