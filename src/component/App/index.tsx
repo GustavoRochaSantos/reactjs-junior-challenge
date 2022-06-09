@@ -17,7 +17,7 @@ export const App =()=> {
                 <Image src={logo}/>
                 <Text fontWeight={'700'} fontSize={'40px'} lineHeight={'54px'} >Frontend Challenge</Text>
             </Flex>
-            <Flex p={'70px'} flexDir={'column'} h={'70vh'}>
+            <Flex p={'70px'} flexDir={'column'} minHeight={'50vh'}>
                 <Box display={'flex'} alignItems={'center'} mb={'41px'} gap={'20px'} >
                         <Input
                             placeholder='Pesquisar por nome, empresa , telefone, email ou status'

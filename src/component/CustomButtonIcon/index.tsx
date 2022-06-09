@@ -43,6 +43,8 @@ export  const CustomButtonIcon = ({Icon, type, dataClient}:ICustomButtonProps)=>
         }
     };
 
+
+
     const onSubmit = (data:any) => {
         createNewClient({...data, isActive: true,id:uuidv4()}).then(res=>console.log(res))
         onClose()
