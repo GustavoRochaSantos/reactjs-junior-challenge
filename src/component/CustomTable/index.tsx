@@ -39,7 +39,7 @@ export const CustomTable =()=> {
             setLoading(false)
         })
 
-        setCurrentItems(data.slice(0, 50))
+        setCurrentItems(data?.slice(0, 50))
     }, [data])
 
     return (
@@ -72,8 +72,8 @@ export const CustomTable =()=> {
                             client.address.includes(searchText)
                             ||
                             client.note.includes(searchText)
-                        ).slice(pagesVisited, pagesVisited + usersPerPage).map((client, index)=>
-                            <Tr key={client.id}  >
+                        )?.slice(pagesVisited, pagesVisited + usersPerPage)?.map((client, index)=>
+                            <Tr key={client?.id}  >
                                 <Td display={'flex'} gap={'10px'} alignItems="center" p={5}>
                                     <CustomButtonIcon Icon={FiEdit} type={'edit'} dataClient={client}/>
                                     <MdDelete onClick={()=> {
@@ -90,8 +90,8 @@ export const CustomTable =()=> {
                                 </Td>
                                 <td>
                                     {
-                                        client.image ?
-                                            <img src={client.image} alt="client photo" style={{
+                                        client?.image ?
+                                            <img src={client?.image} alt="client" style={{
                                             width:'30px', height:'30px'
                                             }}/>
                                             :
@@ -99,13 +99,13 @@ export const CustomTable =()=> {
                                     }
 
                                 </td>
-                                <Td>{client.name}</Td>
-                                <Td>{client.company}</Td>
-                                <Td>{client.phone}</Td>
-                                <Td>{client.address}</Td>
-                                <Td>{client.email}</Td>
-                                <Td>{client.note}</Td>
-                                <Td>{client.isActive ? 'activo' : 'inativo'}</Td>
+                                <Td>{client?.name}</Td>
+                                <Td>{client?.company}</Td>
+                                <Td>{client?.phone}</Td>
+                                <Td>{client?.address}</Td>
+                                <Td>{client?.email}</Td>
+                                <Td>{client?.note}</Td>
+                                <Td>{client?.isActive ? 'activo' : 'inativo'}</Td>
                             </Tr>
                         )
                     }
