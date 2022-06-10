@@ -81,7 +81,7 @@ export default function Modal() {
         setForm({id:"", name:"", company:"", email:"",phone:"", address:"", note:"", isActive: true });
       };
 
-    const sendForm = (event:  { preventDefault: () => void; }): any => {
+    const sendForm = (event: React.FormEvent<any>) => {
         event.preventDefault()
         console.log("Formulario enviado", form)
         cleanFields()
