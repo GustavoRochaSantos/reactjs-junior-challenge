@@ -1,7 +1,7 @@
 {
   "clients": [
     {
-      "guid": "0ac3f57a-4c1c-4875-92fb-b912744886b5",
+      "id": "0ac3f57a-4c1c-4875-92fb-b912744886b5",
       "name": "Hurley George",
       "company": "STRALUM",
       "email": "hurleygeorge@stralum.com",
@@ -11,7 +11,7 @@
       "isActive": false
     },
     {
-      "guid": "72570e07-e123-4f70-bc95-00c76432e3ca",
+      "id": "72570e07-e123-4f70-bc95-00c76432e3ca",
       "name": "Trudy Beasley",
       "company": "AUTOGRATE",
       "email": "trudybeasley@autograte.com",
@@ -21,7 +21,7 @@
       "isActive": true
     },
     {
-      "guid": "b4d8225b-9e18-4413-a759-af89909d67b2",
+      "id": "b4d8225b-9e18-4413-a759-af89909d67b2",
       "name": "Middleton Kemp",
       "company": "SLAMBDA",
       "email": "middletonkemp@slambda.com",
@@ -31,7 +31,7 @@
       "isActive": false
     },
     {
-      "guid": "4b382c63-6612-4d6f-be5c-104a7dd1e89a",
+      "id": "4b382c63-6612-4d6f-be5c-104a7dd1e89a",
       "name": "Boyer Mcintyre",
       "company": "OTHERSIDE",
       "email": "boyermcintyre@otherside.com",
@@ -41,7 +41,7 @@
       "isActive": true
     },
     {
-      "guid": "0f6dd3f2-923e-4b54-a92b-7275adc115c9",
+      "id": "0f6dd3f2-923e-4b54-a92b-7275adc115c9",
       "name": "Johnston Fuller",
       "company": "ROCKABYE",
       "email": "johnstonfuller@rockabye.com",

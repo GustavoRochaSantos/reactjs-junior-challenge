@@ -16,7 +16,7 @@ bottom: 0;
 background-color: gray;
 color: white;
 padding: 10px;
-height: 75px
+height: 50px
 `
 
 const ContactConteiner = styled.div`

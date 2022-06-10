@@ -16,6 +16,7 @@
     "@mui/material": "^5.8.2",
     "@mui/styled-engine-sc": "^5.8.0",
     "@mui/x-data-grid": "^5.12.0",
+    "@types/uuid": "^8.3.4",
     "axios": "^0.27.2",
     "concurrently": "^7.2.1",
     "install": "^0.13.0",
@@ -23,7 +24,8 @@
     "material-ui-search-bar": "^1.0.0",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
-    "styled-components": "^5.3.5"
+    "styled-components": "^5.3.5",
+    "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.0",
