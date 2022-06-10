@@ -6,7 +6,6 @@ import { Button } from '@mui/material';
 import { v4 } from 'uuid';
 import axios from 'axios';
 import { useState } from 'react';
-import useForm from '../hooks/useForm';
 
 const ModalConteiner = styled.div`
 display: flex ;
@@ -20,18 +19,24 @@ id: string,
 name: string,
 company: string,
 email: string,
-phone?: string,
-address?: string,
-note?: string,
+phone: string,
+address: string,
+note: string,
 isActive: boolean
 }
 
 
+export class IdGenerator {
+    // constructor(){}
+    generateId = (): string => v4()
+  }
+
+  const idV4: string = new IdGenerator().generateId()
 
 
 export default function Modal() {
  const [form, setForm] = useState<ClientInfo>({
-    id: v4(), 
+    id: idV4, 
     name: "",
     company: "", 
     email: "", 
@@ -41,7 +46,6 @@ export default function Modal() {
     isActive: true
     })
 
-    console.log(form)
 
 
     const body = {
@@ -63,14 +67,13 @@ export default function Modal() {
         })
         .then((res) => {
             setForm(res.data)
-            console.log(res.data)
-
+            alert('Usuário cadastrado com sucesso')
         })
         .catch((err) => {
             console.log("erro", err.response)
         });
 
-        const handleChange = (event: any) => {
+        const handleChange = (event: React.ChangeEvent<any>): void => {
             setForm(event.target.value);
           };
 
@@ -78,7 +81,7 @@ export default function Modal() {
         setForm({id:"", name:"", company:"", email:"",phone:"", address:"", note:"", isActive: true });
       };
 
-    const sendForm = (event: any) => {
+    const sendForm = (event:  { preventDefault: () => void; }): any => {
         event.preventDefault()
         console.log("Formulario enviado", form)
         cleanFields()
@@ -101,8 +104,9 @@ export default function Modal() {
                     <TextField
                         id="outlined-multiline-flexible"
                         label="Nome"
-                        value={form.name}
+                        value={form.name} 
                         onChange={handleChange}
+                        required
                     />
                     <TextField
                         id="outlined-textarea"
@@ -110,6 +114,7 @@ export default function Modal() {
                         value={form.company}
                         onChange={handleChange}
                         multiline
+                        required
                     />
                     <TextField
                         id="outlined-multiline-flexible"
@@ -117,18 +122,21 @@ export default function Modal() {
                         maxRows={4}
                         value={form.phone}
                         onChange={handleChange}
+                        required
                     />
                     <TextField
                         id="outlined-textarea"
                         label="Email"
                         value={form.email}
                         onChange={handleChange}
+                        required
                     />
                     <TextField
                         id="outlined-textarea"
                         label="Endereço"
                         value={form.address}
                         onChange={handleChange}
+                        required
                     />
                     <TextField
                         id="outlined-multiline-static"
@@ -137,10 +145,11 @@ export default function Modal() {
                         rows={4}
                         value={form.note}
                         onChange={handleChange}
+                        required
                     />
             </Box> 
             
-            <Button variant="outlined" size='small' type="submit" >Adicionar</Button>
+            <Button variant="outlined" size='small'type="submit" >Adicionar</Button>
  
         </ModalConteiner>
     );
