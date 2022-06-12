@@ -20,9 +20,6 @@ float: left;
 margin-left: 700px;
 margin-top: -45px ;
 `
-const styledButton = styled(Button)`
-width: 50px;
-`
 
 function SearchBox() {
     const [isModalVisible, setIsModalVisible] = useState(false)

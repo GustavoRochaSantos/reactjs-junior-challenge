@@ -6,7 +6,6 @@ import { Button } from '@mui/material';
 import { v4 } from 'uuid';
 import axios from 'axios';
 import { useState } from 'react';
-import useForm from '../hooks/useForm';
 
 const ModalConteiner = styled.div`
 display: flex ;
@@ -27,14 +26,6 @@ interface ClientInfo {
 }
 
 
-/* export class IdGenerator {
-    // constructor(){}
-    generateId = (): string => v4()
-}
-
-const idV4: string = new IdGenerator().generateId()
- */
-
 export default function Modal() {
     const [form, setForm] = useState<ClientInfo>({
         id: v4(),
@@ -47,18 +38,14 @@ export default function Modal() {
         isActive: true
     })
 
-    const createPost = (body: any) => {
-
+    const createPost = (body: ClientInfo) => {
         axios.post(
-            "http://localhost:3001/clients", body, {
+            "http://localhost:3001/clients", body , {
             headers: {
                 "Content-Type": "application/json",
             }
         })
-            .then((res) => {
-                setForm(res.data)
-                console.log(form)
-                cleanFields()
+            .then((res:any) => {
                 alert('Usuário cadastrado com sucesso')
             })
             .catch((err) => {
@@ -66,7 +53,7 @@ export default function Modal() {
             });
     }
 
-    const onChange = (event: React.ChangeEvent<any>): void => {
+    const onChange = ( event: React.ChangeEvent<HTMLInputElement>): void => {
         setForm({ ...form, [event.target.name]: event.target.value });
     };
 
@@ -74,7 +61,7 @@ export default function Modal() {
         setForm({ id: "", name: "", company: "", email: "", phone: "", address: "", note: "", isActive: true });
     };
 
- const onSubmitForm = (event: React.FormEvent<any>) => {
+ const sendFormData = (event: React.SyntheticEvent) => {
         event.preventDefault()
         createPost(form)
         cleanFields()
@@ -94,7 +81,7 @@ export default function Modal() {
                 }}
                 noValidate
                 autoComplete="off"
-                onSubmit={onSubmitForm}
+                onSubmit={sendFormData}
             >
                 <TextField
                     id="outlined-multiline-flexible"
@@ -149,7 +136,7 @@ export default function Modal() {
                     value={form.note}
                     onChange={onChange}
                 />
-                <Button variant="outlined" size='small' >Adicionar</Button>
+                <Button variant="outlined" size='small' type='submit' >Adicionar</Button>
             </Box>
 
 

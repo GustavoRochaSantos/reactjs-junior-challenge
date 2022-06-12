@@ -9,7 +9,6 @@ import Paper from '@mui/material/Paper';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import deletebutton from '../assets/deletebutton.svg'
 
 const Conteiner = styled.div`
 display: flex;
@@ -86,22 +85,22 @@ export default function Spreadsheet() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {clients && clients.map((row) => (
+            {clients?.map(({id, name, phone, email, isActive, company}) => (
               <TableRow
-                key={row.id}
+                key={id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell align="right">
-                <button onClick={()=>deleteClient(row.id)}>X</button>
+                <button onClick={()=>deleteClient(id)}>X</button>
                 </TableCell>
 
                 <TableCell component="th" scope="row">
-                  {row.name}
+                  {name}
                 </TableCell>
-                <TableCell align="right">{row.company}</TableCell>
-                <TableCell align="right">{row.phone}</TableCell>
-                <TableCell align="right">{row.email}</TableCell>
-                <TableCell align="right">{(row.isActive ? "Ativo" : "Inativo")}</TableCell>
+                <TableCell align="right">{company}</TableCell>
+                <TableCell align="right">{phone}</TableCell>
+                <TableCell align="right">{email}</TableCell>
+                <TableCell align="right">{(isActive ? "Ativo" : "Inativo")}</TableCell>
               </TableRow>
             ))}
           </TableBody>
