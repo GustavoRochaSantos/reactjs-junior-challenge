@@ -12,6 +12,7 @@ import axios from 'axios';
 import edit from '../assets/edit.svg'
 import EditModal from './editModal';
 import { ClientInfo, CreateData } from '../types/types';
+import { formControlClasses } from '@mui/material';
 
 const Conteiner = styled.div`
 display: flex;
@@ -60,6 +61,10 @@ export default function Spreadsheet() {
     getClients()
   }, []);
 
+  function goToEditModal (){
+    setIsModalVisible(true)
+  }
+  
 
   return (
     <Conteiner>
@@ -83,7 +88,7 @@ export default function Spreadsheet() {
               >
                 <TableCell align="right">
                 <button onClick={()=>deleteClient(id)}>X</button>
-                <img src={edit} onClick={()=>setIsModalVisible(true)}></img>
+                <img src={edit} onClick={goToEditModal}/>
                 </TableCell>
                 <TableCell component="th" scope="row">
                   {name}
@@ -97,11 +102,9 @@ export default function Spreadsheet() {
           </TableBody>
         </Table>
       </TableContainer>
-      {isModalVisible ? <EditModal /> : null }
+      {isModalVisible ? <EditModal  /> : null }
 
     </Conteiner>
   );
 }
-
-
 
