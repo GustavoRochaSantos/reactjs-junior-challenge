@@ -7,7 +7,7 @@ import { v4 } from 'uuid';
 import axios from 'axios';
 import { useState } from 'react';
 import { ClientInfo } from '../types/types';
-
+import { useEffect } from 'react';
 
 const ModalConteiner = styled.div`
 display: flex ;
@@ -16,8 +16,15 @@ align-items: center ;
 justify-content: center ;
 `
 
+interface EditModalProps {
+    editId: string;
+    cleanup: () => void;
+}
 
-export default function EditModal() {
+
+
+export default function EditModal(props: EditModalProps) {
+    const { editId } = props;
     const [form, setForm] = useState<ClientInfo>({
         id: v4(),
         name: "",
@@ -26,24 +33,31 @@ export default function EditModal() {
         phone: "",
         address: "",
         note: "",
-        isActive: true
+        isActive: true,
     })
 
+    console.log({ editId });
+
+    React.useEffect(() => {
+        return cleanup();
+    })
 
     function updateClient() {
-        const body = form
+        const body = form;
         axios
             .put(`http://localhost:3001/clients/${form.id}`, {
-                body
+                body,
             })
             .then((response) => {
                 setForm(response.data);
-                console.log(response.data)
+                console.log(response.data);
+                cleanup()
             })
             .catch((err: any) => {
-                console.log(err.response)
+                console.log(err.response);
             });
     }
+
 
 
     const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {

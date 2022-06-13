@@ -26,6 +26,8 @@ export default function Spreadsheet() {
 
   const [clients, setClients] = useState<CreateData[]>([])
   const [isModalVisible, setIsModalVisible] = useState(false)
+  const [dataToEditId, setDataToEditId] = useState("")
+
 
   const getClients = () => {
     axios
@@ -42,8 +44,8 @@ export default function Spreadsheet() {
       });
   }
 
-   const api = axios.create({
-  baseURL: "http://localhost:3001",
+  const api = axios.create({
+    baseURL: "http://localhost:3001",
   });
 
   async function deleteClient(id: string) {
@@ -61,10 +63,10 @@ export default function Spreadsheet() {
     getClients()
   }, []);
 
-  function goToEditModal (){
+  function goToEditModal(id: string) {
     setIsModalVisible(true)
   }
-  
+
 
   return (
     <Conteiner>
@@ -81,15 +83,14 @@ export default function Spreadsheet() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {clients?.map(({id, name, phone, email, isActive, company}) => (
+            {clients?.map(({ id, name, phone, email, isActive, company }) => (
               <TableRow
                 key={id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
               >
                 <TableCell align="right">
-                <button onClick={()=>deleteClient(id)}>X</button>
-                <img src={edit} onClick={goToEditModal}/>
-                </TableCell>
+                  <button onClick={() => deleteClient(id)}>X</button>
+                  <img src={edit} onClick={() => goToEditModal(id)} />                </TableCell>
                 <TableCell component="th" scope="row">
                   {name}
                 </TableCell>
@@ -102,8 +103,9 @@ export default function Spreadsheet() {
           </TableBody>
         </Table>
       </TableContainer>
-      {isModalVisible ? <EditModal  /> : null }
-
+      {isModalVisible ? (
+        <EditModal editId={dataToEditId} cleanup={() => setDataToEditId("")} />
+      ) : null}
     </Conteiner>
   );
 }
