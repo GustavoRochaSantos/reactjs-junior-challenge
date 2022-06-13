@@ -8,6 +8,7 @@ import axios from 'axios';
 import { useState } from 'react';
 import { ClientInfo } from '../types/types';
 
+
 const ModalConteiner = styled.div`
 display: flex ;
 flex-direction: column;
@@ -16,8 +17,7 @@ justify-content: center ;
 `
 
 
-export default function Modal() {
-    const [uptadeClients, setUpdateClients] = useState([])
+export default function EditModal() {
     const [form, setForm] = useState<ClientInfo>({
         id: v4(),
         name: "",
@@ -29,24 +29,24 @@ export default function Modal() {
         isActive: true
     })
 
-    const createPost = (body: ClientInfo) => {
-        axios.post(
-            "http://localhost:3001/clients", body , {
-            headers: {
-                "Content-Type": "application/json",
-            }
-        })
-            .then((res:any) => {
-                alert('Usuário cadastrado com sucesso')
+
+    function updateClient() {
+        const body = form
+        axios
+            .put(`http://localhost:3001/clients/${form.id}`, {
+                body
             })
-            .catch((err) => {
-                console.log("erro", err.response.message)
+            .then((response) => {
+                setForm(response.data);
+                console.log(response.data)
+            })
+            .catch((err: any) => {
+                console.log(err.response)
             });
     }
 
 
-
-    const onChange = ( event: React.ChangeEvent<HTMLInputElement>): void => {
+    const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
         setForm({ ...form, [event.target.name]: event.target.value });
     };
 
@@ -54,18 +54,17 @@ export default function Modal() {
         setForm({ id: "", name: "", company: "", email: "", phone: "", address: "", note: "", isActive: true });
     };
 
- const sendFormData = (event: React.SyntheticEvent) => {
+    const sendFormData = (event: React.SyntheticEvent) => {
         event.preventDefault()
-        createPost(form)
+        updateClient()
         cleanFields()
-    } 
+    }
 
-    console.log(form)
 
 
     return (
         <ModalConteiner>
-            <h2>Dados do cliente</h2>
+            <h2>Editar dados cliente</h2>
             <hr />
             <Box
                 component="form"
@@ -129,7 +128,7 @@ export default function Modal() {
                     value={form.note}
                     onChange={onChange}
                 />
-                <Button variant="outlined" size='small' type='submit' >Adicionar</Button>
+                <Button variant="outlined" size='small' type='submit' >Enviar</Button>
             </Box>
 
 

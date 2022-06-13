@@ -1,16 +1,6 @@
 {
   "clients": [
     {
-      "id": "0ac3f57a-4c1c-4875-92fb-b912744886b5",
-      "name": "Hurley George",
-      "company": "STRALUM",
-      "email": "hurleygeorge@stralum.com",
-      "phone": "+1 (813) 459-3680",
-      "address": "690 Havens Place, Loma, New Jersey, 2489",
-      "note": "bla bla bla",
-      "isActive": false
-    },
-    {
       "id": "72570e07-e123-4f70-bc95-00c76432e3ca",
       "name": "Trudy Beasley",
       "company": "AUTOGRATE",
@@ -41,23 +31,13 @@
       "isActive": true
     },
     {
-      "id": "0f6dd3f2-923e-4b54-a92b-7275adc115c9",
-      "name": "Johnston Fuller",
-      "company": "ROCKABYE",
-      "email": "johnstonfuller@rockabye.com",
-      "phone": "+1 (959) 528-3801",
-      "address": "595 Kimball Street, Comptche, Delaware, 8300",
-      "note": "",
-      "isActive": true
-    },
-    {
-      "id": "5baa928b-4b0d-4edd-95c4-1b30e2ae3d06",
+      "id": "6860cb5c-f2ba-4bee-9efd-d9ab13d792c5",
       "name": "51992780681",
       "company": "claricepassos@gmail.com",
       "email": "claricepassos@gmail.com",
       "phone": "51992780681",
       "address": "Rua General Bento Martins, 729",
-      "note": "",
+      "note": "kkkk",
       "isActive": true
     }
   ]

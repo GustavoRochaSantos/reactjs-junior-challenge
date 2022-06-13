@@ -9,6 +9,9 @@ import Paper from '@mui/material/Paper';
 import styled from 'styled-components';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import edit from '../assets/edit.svg'
+import EditModal from './editModal';
+import { ClientInfo, CreateData } from '../types/types';
 
 const Conteiner = styled.div`
 display: flex;
@@ -18,25 +21,10 @@ justify-content: center ;
 cursor: pointer
 `
 
-const Icon = styled.img`
-height: 30px;
-`
-
-interface createData {
-  id: string,
-  name: string,
-  company: string,
-  phone: string,
-  email: string,
-  isActive: boolean
-}
-
-
 export default function Spreadsheet() {
 
-  const [clients, setClients] = useState<createData[]>([])
-  const [deletClient, setDeletClient] = useState()
-
+  const [clients, setClients] = useState<CreateData[]>([])
+  const [isModalVisible, setIsModalVisible] = useState(false)
 
   const getClients = () => {
     axios
@@ -46,6 +34,7 @@ export default function Spreadsheet() {
       .then((res) => {
         setClients(res.data)
         console.log(res.data)
+        setIsModalVisible(false)
       })
       .catch((err) => {
         console.log(err.response)
@@ -64,6 +53,8 @@ export default function Spreadsheet() {
 
     setClients(newClients);
   }
+
+
 
   useEffect(() => {
     getClients()
@@ -92,8 +83,8 @@ export default function Spreadsheet() {
               >
                 <TableCell align="right">
                 <button onClick={()=>deleteClient(id)}>X</button>
+                <img src={edit} onClick={()=>setIsModalVisible(true)}></img>
                 </TableCell>
-
                 <TableCell component="th" scope="row">
                   {name}
                 </TableCell>
@@ -106,6 +97,8 @@ export default function Spreadsheet() {
           </TableBody>
         </Table>
       </TableContainer>
+      {isModalVisible ? <EditModal /> : null }
+
     </Conteiner>
   );
 }
