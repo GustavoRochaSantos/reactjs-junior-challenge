@@ -65,6 +65,7 @@ export default function Spreadsheet() {
 
   function goToEditModal(id: string) {
     setIsModalVisible(true)
+    setDataToEditId(id)
   }
 
 
@@ -105,8 +106,7 @@ export default function Spreadsheet() {
       </TableContainer>
       {isModalVisible ? (
         <EditModal editId={dataToEditId} cleanup={() => setDataToEditId("")} />
-      ) : null}
-    </Conteiner>
+      ) : null}    </Conteiner>
   );
 }
 

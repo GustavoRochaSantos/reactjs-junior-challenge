@@ -19,7 +19,7 @@ justify-content: center ;
 interface EditModalProps {
     editId: string;
     cleanup: () => void;
-}
+ }
 
 
 
@@ -38,9 +38,9 @@ export default function EditModal(props: EditModalProps) {
 
     console.log({ editId });
 
-    React.useEffect(() => {
+/*     React.useEffect(() => {
         return cleanup();
-    })
+    }) */
 
     function updateClient() {
         const body = form;
@@ -51,8 +51,8 @@ export default function EditModal(props: EditModalProps) {
             .then((response) => {
                 setForm(response.data);
                 console.log(response.data);
-                cleanup()
-            })
+/*                 cleanup()
+ */            })
             .catch((err: any) => {
                 console.log(err.response);
             });
