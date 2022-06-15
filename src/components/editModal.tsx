@@ -6,7 +6,7 @@ import { Button } from '@mui/material';
 import { v4 } from 'uuid';
 import axios from 'axios';
 import { useState } from 'react';
-import { ClientInfo } from '../types/types';
+import { ClientInfo, CreateData } from '../types/types';
 import { useEffect } from 'react';
 
 const ModalConteiner = styled.div`
@@ -18,15 +18,15 @@ justify-content: center ;
 
 interface EditModalProps {
     editId: string;
-    cleanup: () => void;
- }
+}
 
 
 
 export default function EditModal(props: EditModalProps) {
+    const [clients, setClients] = useState<CreateData[]>([])
     const { editId } = props;
     const [form, setForm] = useState<ClientInfo>({
-        id: v4(),
+        id: props.editId,
         name: "",
         company: "",
         email: "",
@@ -38,43 +38,53 @@ export default function EditModal(props: EditModalProps) {
 
     console.log({ editId });
 
-/*     React.useEffect(() => {
-        return cleanup();
-    }) */
 
-    function updateClient() {
-        const body = form;
+    function updateClient(body: ClientInfo) {
         axios
-            .put(`http://localhost:3001/clients/${form.id}`, {
-                body,
-            })
+            .put(`http://localhost:3001/clients/${form.id}`, 
+                body
+            )
             .then((response) => {
                 setForm(response.data);
-                console.log(response.data);
-/*                 cleanup()
- */            })
+                cleanFields()
+                alert('Alteração feita');
+            })
             .catch((err: any) => {
                 console.log(err.response);
             });
     }
-
-
 
     const onChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
         setForm({ ...form, [event.target.name]: event.target.value });
     };
 
     const cleanFields = () => {
-        setForm({ id: "", name: "", company: "", email: "", phone: "", address: "", note: "", isActive: true });
+        setForm({ id: props.editId, name: "", company: "", email: "", phone: "", address: "", note: "", isActive: true });
     };
 
     const sendFormData = (event: React.SyntheticEvent) => {
         event.preventDefault()
-        updateClient()
-        cleanFields()
+        updateClient(form)
     }
 
+/* 
+    const getClients = () => {
+        axios
+            .get(
+                `http://localhost:3001/clients/${form.id}`
+            )
+            .then((res) => {
+                setClients(res.data)
+                console.log(res.data)
+            })
+            .catch((err) => {
+                console.log(err.response)
+            });
+    }
 
+    useEffect(() => {
+        getClients()
+    }, []); */
 
     return (
         <ModalConteiner>
@@ -89,6 +99,7 @@ export default function EditModal(props: EditModalProps) {
                 autoComplete="off"
                 onSubmit={sendFormData}
             >
+
                 <TextField
                     id="outlined-multiline-flexible"
                     name="name"
@@ -142,6 +153,7 @@ export default function EditModal(props: EditModalProps) {
                     value={form.note}
                     onChange={onChange}
                 />
+
                 <Button variant="outlined" size='small' type='submit' >Enviar</Button>
             </Box>
 

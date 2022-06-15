@@ -105,7 +105,7 @@ export default function Spreadsheet() {
         </Table>
       </TableContainer>
       {isModalVisible ? (
-        <EditModal editId={dataToEditId} cleanup={() => setDataToEditId("")} />
+        <EditModal editId={dataToEditId} />
       ) : null}    </Conteiner>
   );
 }

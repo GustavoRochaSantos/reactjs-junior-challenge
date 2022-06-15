@@ -17,7 +17,6 @@ justify-content: center ;
 
 
 export default function Modal() {
-    const [uptadeClients, setUpdateClients] = useState([])
     const [form, setForm] = useState<ClientInfo>({
         id: v4(),
         name: "",
