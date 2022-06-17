@@ -23,7 +23,6 @@ interface EditModalProps {
 
 
 export default function EditModal(props: EditModalProps) {
-    const [clients, setClients] = useState<CreateData[]>([])
     const { editId } = props;
     const [form, setForm] = useState<ClientInfo>({
         id: props.editId,
@@ -41,7 +40,7 @@ export default function EditModal(props: EditModalProps) {
 
     function updateClient(body: ClientInfo) {
         axios
-            .put(`http://localhost:3001/clients/${form.id}`, 
+            .put(`http://localhost:3001/clients/${form.id}`,
                 body
             )
             .then((response) => {
@@ -67,14 +66,15 @@ export default function EditModal(props: EditModalProps) {
         updateClient(form)
     }
 
-/* 
-    const getClients = () => {
+
+
+    const getClients = (id: string) => {
         axios
             .get(
-                `http://localhost:3001/clients/${form.id}`
+                `http://localhost:3001/clients/${id}`
             )
             .then((res) => {
-                setClients(res.data)
+                setForm(res.data)
                 console.log(res.data)
             })
             .catch((err) => {
@@ -83,80 +83,80 @@ export default function EditModal(props: EditModalProps) {
     }
 
     useEffect(() => {
-        getClients()
-    }, []); */
+       const id = form.id
+        getClients(id)
+    }, []);
 
     return (
         <ModalConteiner>
             <h2>Editar dados cliente</h2>
             <hr />
-            <Box
-                component="form"
-                sx={{
-                    '& .MuiTextField-root': { m: 1, width: '70ch' },
-                }}
-                noValidate
-                autoComplete="off"
-                onSubmit={sendFormData}
-            >
+                <Box
+                    component="form"
+                    sx={{
+                        '& .MuiTextField-root': { m: 1, width: '70ch' },
+                    }}
+                    noValidate
+                    autoComplete="off"
+                    onSubmit={sendFormData}
+                >
+                    <TextField
+                        id="outlined-multiline-flexible"
+                        name="name"
+                        label="Nome"
+                        value={form.name}
+                        onChange={onChange}
+                        type='text'
+                        required
+                    />
+                    <TextField
+                        id="outlined-textarea"
+                        name="company"
+                        label="Empresa"
+                        value={form.company}
+                        onChange={onChange}
+                        type='text'
+                        required
+                    />
+                    <TextField
+                        id="outlined-multiline-flexible"
+                        name="phone"
+                        label="Telefone"
+                        value={form.phone}
+                        onChange={onChange}
+                        type='text'
+                        required
+                    />
+                    <TextField
+                        id="outlined-textarea"
+                        name="email"
+                        label="Email"
+                        value={form.email}
+                        onChange={onChange}
+                        type='email'
+                        required
+                    />
+                    <TextField
+                        id="outlined-textarea"
+                        name="address"
+                        label="Endereço"
+                        value={form.address}
+                        onChange={onChange}
 
-                <TextField
-                    id="outlined-multiline-flexible"
-                    name="name"
-                    label="Nome"
-                    value={form.name}
-                    onChange={onChange}
-                    type='text'
-                    required
-                />
-                <TextField
-                    id="outlined-textarea"
-                    name="company"
-                    label="Empresa"
-                    value={form.company}
-                    onChange={onChange}
-                    type='text'
-                    required
-                />
-                <TextField
-                    id="outlined-multiline-flexible"
-                    name="phone"
-                    label="Telefone"
-                    value={form.phone}
-                    onChange={onChange}
-                    type='text'
-                    required
-                />
-                <TextField
-                    id="outlined-textarea"
-                    name="email"
-                    label="Email"
-                    value={form.email}
-                    onChange={onChange}
-                    type='email'
-                    required
-                />
-                <TextField
-                    id="outlined-textarea"
-                    name="address"
-                    label="Endereço"
-                    value={form.address}
-                    onChange={onChange}
+                    />
+                    <TextField
+                        id="outlined-multiline-static"
+                        name="note"
+                        label="Notas"
+                        multiline
+                        rows={4}
+                        value={form.note}
+                        onChange={onChange}
+                    />
 
-                />
-                <TextField
-                    id="outlined-multiline-static"
-                    name="note"
-                    label="Notas"
-                    multiline
-                    rows={4}
-                    value={form.note}
-                    onChange={onChange}
-                />
+                    <Button variant="outlined" size='small' type='submit' >Enviar</Button>
 
-                <Button variant="outlined" size='small' type='submit' >Enviar</Button>
-            </Box>
-
+                </Box>
 
         </ModalConteiner>
     );
