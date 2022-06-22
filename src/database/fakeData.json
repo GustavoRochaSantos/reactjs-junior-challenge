@@ -42,7 +42,37 @@
     },
     {
       "id": "102463c8-8683-40b5-b3b5-768ad32a10c2",
-      "name": "clarice",
+      "name": "clari",
+      "company": "claricepassos@gmail.com",
+      "email": "claricepassos@gmail.com",
+      "phone": "51992780681",
+      "address": "Rua General Bento Martins, 729",
+      "note": "",
+      "isActive": true
+    },
+    {
+      "id": "b48aa2fd-a287-465d-bcc5-9e2af85ad441",
+      "name": "519927806810",
+      "company": "claricepassos@gmail.com",
+      "email": "claricepassos@gmail.com",
+      "phone": "51992780681",
+      "address": "Rua General Bento Martins, 729",
+      "note": "",
+      "isActive": true
+    },
+    {
+      "id": "2d2e35ae-7f44-4569-ad2b-40911ca235b0",
+      "name": "51992780681",
+      "company": "claricepassos@gmail.com",
+      "email": "claricepassos@gmail.com",
+      "phone": "51992780681",
+      "address": "Rua General Bento Martins, 729",
+      "note": "",
+      "isActive": true
+    },
+    {
+      "id": "f75cec23-398e-4927-85cc-b91e03b0e89f",
+      "name": "51992780681",
       "company": "claricepassos@gmail.com",
       "email": "claricepassos@gmail.com",
       "phone": "51992780681",

@@ -13,6 +13,7 @@ import edit from '../assets/edit.svg'
 import EditModal from './editModal';
 import { ClientInfo, CreateData } from '../types/types';
 import { formControlClasses } from '@mui/material';
+import PaginationComponent from './pagination';
 
 const Conteiner = styled.div`
 display: flex;
@@ -27,17 +28,19 @@ export default function Spreadsheet() {
   const [clients, setClients] = useState<CreateData[]>([])
   const [isModalVisible, setIsModalVisible] = useState(false)
   const [dataToEditId, setDataToEditId] = useState("")
-
+  const [page, setPage] = useState(1)
+  const [numberOfPages, setNumberOfPages] = useState(1)
 
   const getClients = () => {
     axios
       .get(
-        "http://localhost:3001/clients"
+        `http://localhost:3001/clients?_page=${page}`
       )
       .then((res) => {
         setClients(res.data)
         console.log(res.data)
         setIsModalVisible(false)
+        setNumberOfPages(res.data?.total_pages)
       })
       .catch((err) => {
         console.log(err.response)
@@ -61,7 +64,7 @@ export default function Spreadsheet() {
 
   useEffect(() => {
     getClients()
-  }, []);
+  }, [page]);
 
   function goToEditModal(id: string) {
     setIsModalVisible(true)
@@ -106,7 +109,8 @@ export default function Spreadsheet() {
       </TableContainer>
       {isModalVisible ? (
         <EditModal editId={dataToEditId} />
-      ) : null}    </Conteiner>
+      ) : null}
+      <PaginationComponent setPage={setPage} pageNumber={numberOfPages}/>
+    </Conteiner>
   );
 }
-

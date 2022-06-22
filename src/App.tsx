@@ -5,7 +5,6 @@ import Footer from "./components/footer"
 import Spreadsheet from "./components/spreadsheet"
 import SearchBox from "./components/searchbox"
 import styled from "styled-components"
-import PaginationComponent from "./components/pagination"
 import Modal from "./components/modal"
 
 
@@ -16,12 +15,13 @@ function App() {
 
   return (
     <div>
-      <Header />
-      <SearchBox />
-      {/* <Spreadsheet/>
-      <PaginationComponent/>
+      <div>
+        <Header />
+        <SearchBox />
+        {/* <Spreadsheet/>
       <Modal/> */}
-      <Footer />
+        <Footer />
+      </div>
     </div>
   )
 }

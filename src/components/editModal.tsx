@@ -3,11 +3,11 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import styled from 'styled-components';
 import { Button } from '@mui/material';
-import { v4 } from 'uuid';
 import axios from 'axios';
 import { useState } from 'react';
-import { ClientInfo, CreateData } from '../types/types';
+import { ClientInfo } from '../types/types';
 import { useEffect } from 'react';
+import Spreadsheet from './spreadsheet'
 
 const ModalConteiner = styled.div`
 display: flex ;
@@ -87,6 +87,7 @@ export default function EditModal(props: EditModalProps) {
         getClients(id)
     }, []);
 
+
     return (
         <ModalConteiner>
             <h2>Editar dados cliente</h2>
@@ -157,7 +158,6 @@ export default function EditModal(props: EditModalProps) {
                     <Button variant="outlined" size='small' type='submit' >Enviar</Button>
 
                 </Box>
-
         </ModalConteiner>
     );
 }
