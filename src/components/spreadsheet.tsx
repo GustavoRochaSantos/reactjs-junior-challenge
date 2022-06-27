@@ -23,7 +23,7 @@ justify-content: center ;
 cursor: pointer
 `
 
-export default function Spreadsheet() {
+export default function Spreadsheet( clientFiltered: any, searchTerm: string) {
 
   const [clients, setClients] = useState<CreateData[]>([])
   const [isModalVisible, setIsModalVisible] = useState(false)
@@ -46,6 +46,8 @@ export default function Spreadsheet() {
         console.log(err.response)
       });
   }
+
+  console.log(searchTerm, 'search')
 
   const api = axios.create({
     baseURL: "http://localhost:3001",
@@ -87,7 +89,24 @@ export default function Spreadsheet() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {clients?.map(({ id, name, phone, email, isActive, company }) => (
+          {searchTerm.length > 1 ? (clientFiltered?.map((item: any) => (
+              <TableRow
+                key={item.id}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {item.name}
+                </TableCell>
+                <TableCell align="right">{item.company}</TableCell>
+                <TableCell align="right">{item.phone}</TableCell>
+                <TableCell align="right">{item.email}</TableCell>
+                <TableCell align="right">{(item.isActive ? "Ativo" : "Inativo")}</TableCell>
+              </TableRow>
+            )))
+            
+            :
+
+            (clients?.map(({ id, name, phone, email, isActive, company }) => (
               <TableRow
                 key={id}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
@@ -103,7 +122,8 @@ export default function Spreadsheet() {
                 <TableCell align="right">{email}</TableCell>
                 <TableCell align="right">{(isActive ? "Ativo" : "Inativo")}</TableCell>
               </TableRow>
-            ))}
+            )))
+          }
           </TableBody>
         </Table>
       </TableContainer>

@@ -23,7 +23,7 @@ export default function PaginationComponent({setPage, pageNumber}: any) {
   return (
       <PaginationConteiner>
     <Stack spacing={3} >
-      <Pagination count={pageNumber} onChange={(event: React.ChangeEvent<unknown>, page: number)=>handleChange(event, page)}/>
+      <Pagination count={pageNumber} onChange={(event: React.ChangeEvent<unknown>, page: number)=>handleChange(event)}/>
     </Stack>
     </PaginationConteiner>
   );
