@@ -23,7 +23,12 @@ justify-content: center ;
 cursor: pointer
 `
 
-export default function Spreadsheet( clientFiltered: any, searchTerm: string) {
+interface editModalProps{
+  clientFiltered: CreateData[];
+  searchTerm: string
+}
+
+export default function Spreadsheet( props: editModalProps) {
 
   const [clients, setClients] = useState<CreateData[]>([])
   const [isModalVisible, setIsModalVisible] = useState(false)
@@ -47,7 +52,7 @@ export default function Spreadsheet( clientFiltered: any, searchTerm: string) {
       });
   }
 
-  console.log(searchTerm, 'search')
+  console.log(props.searchTerm, 'search')
 
   const api = axios.create({
     baseURL: "http://localhost:3001",
@@ -89,23 +94,8 @@ export default function Spreadsheet( clientFiltered: any, searchTerm: string) {
             </TableRow>
           </TableHead>
           <TableBody>
-          {searchTerm.length > 1 ? (clientFiltered?.map((item: any) => (
-              <TableRow
-                key={item.id}
-                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-              >
-                <TableCell component="th" scope="row">
-                  {item.name}
-                </TableCell>
-                <TableCell align="right">{item.company}</TableCell>
-                <TableCell align="right">{item.phone}</TableCell>
-                <TableCell align="right">{item.email}</TableCell>
-                <TableCell align="right">{(item.isActive ? "Ativo" : "Inativo")}</TableCell>
-              </TableRow>
-            )))
+          {props.searchTerm ? 
             
-            :
-
             (clients?.map(({ id, name, phone, email, isActive, company }) => (
               <TableRow
                 key={id}
@@ -123,6 +113,22 @@ export default function Spreadsheet( clientFiltered: any, searchTerm: string) {
                 <TableCell align="right">{(isActive ? "Ativo" : "Inativo")}</TableCell>
               </TableRow>
             )))
+            :
+            (props.clientFiltered?.map((item: any) => (
+              <TableRow
+                key={item.id}
+                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+              >
+                <TableCell component="th" scope="row">
+                  {item.name}
+                </TableCell>
+                <TableCell align="right">{item.company}</TableCell>
+                <TableCell align="right">{item.phone}</TableCell>
+                <TableCell align="right">{item.email}</TableCell>
+                <TableCell align="right">{(item.isActive ? "Ativo" : "Inativo")}</TableCell>
+              </TableRow>
+            )))
+
           }
           </TableBody>
         </Table>
