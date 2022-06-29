@@ -85,7 +85,6 @@ export default function Spreadsheet( props: editModalProps) {
         <Table size="medium" aria-label="a dense table">
           <TableHead>
             <TableRow>
-              <TableCell align="right"></TableCell>
               <TableCell align="left">Nome</TableCell>
               <TableCell align="right">Empresa</TableCell>
               <TableCell align="right">Telefone</TableCell>
